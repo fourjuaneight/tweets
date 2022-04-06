@@ -54,6 +54,7 @@ module.exports = config => {
   config.addPassthroughCopy('src/_headers');
   config.addPassthroughCopy('src/manifest.json');
   config.addPassthroughCopy('src/robots.txt');
+  config.addPassthroughCopy('src/assets/icons');
   config.addPassthroughCopy('src/assets/images');
   config.addPassthroughCopy('src/assets/fonts');
 
