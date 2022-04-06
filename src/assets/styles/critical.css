@@ -1,0 +1,133 @@
+:root {
+  --background: #ffffff;
+  --background-dark: #f5f4f2;
+  --foreground: #333333;
+  --meta: #595959;
+  --primary: #9333ea;
+  --selection: #999;
+  --secondary: #0a799d;
+  --tertiary: #597480;
+  --tertiary-transparent: rgba(89, 116, 128, 0.5);
+  --duration: 208ms;
+  --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #333333;
+    --background-dark: #1a1a1a;
+    --foreground: #f5f4f2;
+    --meta: #c2c2c2;
+    --primary: #c390f3;
+    --secondary: #bdecfb;
+    --tertiary: #859faa;
+    --tertiary-transparent: rgba(133, 159, 170, 0.5);
+  }
+}
+
+@font-face {
+  font-family: MD Nichrome;
+  src: url(/fonts/MD-Nichrome-Black-sub.woff2) format('woff2'),
+    url(/fonts/MD-Nichrome-Black-sub.woff) format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MD Nichrome;
+  src: url(/fonts/MD-Nichrome-Black-Oblique-sub.woff2) format('woff2'),
+    url(/fonts/MD-Nichrome-Black-Oblique-sub.woff) format('woff');
+  font-weight: 900;
+  font-style: oblique;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: MD Nichrome;
+  src: url(/fonts/MD-Nichrome-Dark-sub.woff2) format('woff2'),
+    url(/fonts/MD-Nichrome-Dark-sub.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url(/fonts/Nunito-Regular-sub.woff2) format('woff2'),
+    url(/fonts/Nunito-Regular-sub.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url(/fonts/Nunito-Bold-sub.woff2) format('woff2'),
+    url(/fonts/Nunito-Bold-sub.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+::-moz-selection {
+  background-color: var(--selection);
+}
+
+::selection {
+  background-color: var(--selection);
+}
+
+*:focus {
+  outline-color: var(--primary);
+}
+
+html,
+body {
+  background-color: var(--background);
+}
+
+html {
+  box-sizing: border-box;
+  font-feature-settings: 'liga' 1;
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--foreground);
+  font-family: Nunito, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+header,
+main,
+footer {
+  grid-template-columns: minmax(1rem, 1fr) minmax(18rem, 60rem) minmax(
+      1rem,
+      1fr
+    );
+}
+
+header {
+  grid-template-rows: minmax(0.5rem, 1fr) min-content minmax(0.5rem, 1fr);
+}
+
+main {
+  grid-template-rows: 0.5rem auto 0.5rem;
+  min-height: calc(100vh - 11rem);
+}
+
+@media screen and (min-width: 420px) {
+  main {
+    min-height: calc(100vh - 10rem);
+  }
+}
+
+footer {
+  grid-template-rows: minmax(1rem, 1fr) min-content minmax(1rem, 1fr);
+}
