@@ -20,7 +20,8 @@
     "ts": "run-p ts:sw ts:ww",
     "ts:sw": "esbuild src/sw.ts --bundle --splitting --format=esm --outdir=src",
     "ts:ww": "esbuild src/assets/scripts/* --bundle --splitting --format=esm --outdir=src/assets/scripts",
-    "tw": "tailwindcss --no-autoprefixer -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/tw.css"
+    "tw": "tailwindcss --no-autoprefixer -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/tw.css",
+    "tweets-data": "ts-node --project tsconfig.node.json \"helpers/tweets-data.ts\""
   },
   "repository": {
     "type": "git",
