@@ -1,0 +1,14 @@
+.cache
+.netlify
+.eslintrc.js
+postcss.config.js
+prettier.config.js
+tailwind.config.js
+vite.config.ts
+build
+coverage
+dist
+dist-ssr
+node_modules
+public
+*.ts
