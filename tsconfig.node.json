@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": [
+      "esnext"
+    ],
+    "module": "commonjs",
+    "rootDir": "./",
+    "strict": true,
+    "target": "es6",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
+  },
+  "include": [
+    "scripts"
+  ]
+}

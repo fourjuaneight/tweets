@@ -1,2 +1,3 @@
 src/*.ts
 src/*.js
+src/assets/scripts/*.ts
