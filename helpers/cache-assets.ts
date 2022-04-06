@@ -12,7 +12,7 @@ const SITE_URL: string = 'https://tweets.juanvillela.dev';
 const timestamp: number = Math.floor(new Date().getTime() / 1000);
 
 // Glob options. Pass directory to search and files to ignore
-const cwd = resolve(__dirname, 'dist');
+const cwd = resolve(__dirname, '..', 'dist');
 const ignore = ['sw*.js'];
 
 // Find all JS, CSS, and font files in rendered output
@@ -22,7 +22,7 @@ const ignore = ['sw*.js'];
     cwd,
     ignore,
   });
-  const sw = globSync('sw.min.*.js', { cwd });
+  const sw = globSync('sw*.js', { cwd });
   const noise = globSync('noise*.js', { cwd });
   const noiseWW = globSync('noise.ww*.js', { cwd });
   const newFiles = files.map(toCache => `'/${toCache}'`).toString();

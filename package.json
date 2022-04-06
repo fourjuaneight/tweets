@@ -6,7 +6,7 @@
     "build": "run-s clean eleventy:prod",
     "build:prod": "run-p ts tw && npm run build && npm run cache-assets",
     "build:serve": "run-s clean eleventy:prod && serve dist",
-    "cache-assets": "ts-node --project tsconfig.node.json \"cache-assets.ts\"",
+    "cache-assets": "ts-node --project tsconfig.node.json \"helpers/cache-assets.ts\"",
     "clean": "rm -rf dist",
     "clean:node": "rm -rf node_modules",
     "dev": "run-s clean eleventy:dev",
