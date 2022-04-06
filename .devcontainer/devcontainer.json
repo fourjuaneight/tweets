@@ -1,0 +1,15 @@
+{
+  "name": "Tweets Codespace",
+  "dockerFile": "Dockerfile",
+  "containerUser": "node",
+  "remoteUser": "node",
+  "appPort": 8080,
+  "postCreateCommand": "npm install",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "workbench.colorCustomizations": {
+      "statusBar.background": "#333333",
+      "statusBar.foreground": "#ffffff"
+    }
+  }
+}
