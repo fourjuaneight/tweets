@@ -16,6 +16,7 @@
     "serve": "serve dist",
     "start": "concurrently -n \"TW,DEV\" -c \"#38bdf8,#86d0fb\" \"npm run tw -- --watch\" \"npm run dev\"",
     "tsc": "tsc",
+    "ts": "esbuild src/* --bundle --splitting --format=esm --outdir=src",
     "tw": "tailwindcss --no-autoprefixer -i ./src/assets/styles/tailwind.css -o ./src/assets/styles/tw.css"
   },
   "repository": {

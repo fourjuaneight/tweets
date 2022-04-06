@@ -11,4 +11,5 @@ dist
 dist-ssr
 node_modules
 public
+src/*.js
 *.ts

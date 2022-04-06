@@ -22,3 +22,4 @@ pids
 public
 src/assets/styles/tailwind.css
 src/assets/styles/tw.css
+src/*.js
