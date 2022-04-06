@@ -76,3 +76,5 @@ test.js
 .stignore
 .nova
 src/assets/styles/tw.css
+src/assets/scripts/*.js
+src/*.js
