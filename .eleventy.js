@@ -1,4 +1,6 @@
+const CleanCSS = require('clean-css');
 const markdownIt = require('markdown-it');
+const { minify } = require('terser');
 
 const filters = require('./utils/filters.js');
 const transforms = require('./utils/transforms.js');
@@ -7,6 +9,17 @@ module.exports = config => {
   // Filters
   Object.keys(filters).forEach(filterName => {
     config.addFilter(filterName, filters[filterName]);
+  });
+  config.addFilter('cssmin', code => new CleanCSS({}).minify(code).styles);
+  config.addNunjucksAsyncFilter('jsmin', async (code, callback) => {
+    try {
+      const minified = await minify(code);
+      callback(null, minified.code);
+    } catch (err) {
+      console.error('[Terser]:', err);
+      // fail gracefully
+      callback(null, code);
+    }
   });
 
   // Transforms
