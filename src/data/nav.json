@@ -1,0 +1,28 @@
+{
+  "header": [
+    {
+      "label": "Archive",
+      "link": "tweets"
+    },
+    {
+      "label": "About",
+      "link": "about"
+    }
+  ],
+  "footer": [
+    {
+      "label": "About",
+      "link": "about"
+    },
+    {
+      "label": "Twitter",
+      "link": "https://twitter.com/fourjuaneight",
+      "external": true
+    },
+    {
+      "label": "GitHub",
+      "link": "https://github.com/fourjuaneight",
+      "external": true
+    }
+  ]
+}

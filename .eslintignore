@@ -13,3 +13,4 @@ node_modules
 public
 src/*.js
 *.ts
+src/data/build.js
