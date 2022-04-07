@@ -1,0 +1,28 @@
+<footer class="grid w-full">
+  <section
+    class="col-start-2 flex flex-col items-center justify-center row-start-2 w-full"
+  >
+    <ul
+      class="auto-cols-auto gap-x-1 grid grid-rows-1 items-center list-none my-2 p-0 xxs:gap-x-3"
+    >
+      <li class="m-0 row-start-1">
+        <p class="m-0 text-sm">
+          &copy; {{ build.timestamp | dateYear }} {{ meta.title }}
+        </p>
+      </li>
+      <li class="m-0 row-start-1">
+        <p class="m-0 text-meta text-sm" aria-hidden="true">~</p>
+      </li>
+      <li class="m-0 row-start-1">
+        <a
+          class="no-underline text-sm"
+          href="https://github.com/fourjuaneight/tweets"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source
+        </a>
+      </li>
+    </ul>
+  </section>
+</footer>

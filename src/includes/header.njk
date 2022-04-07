@@ -1,0 +1,27 @@
+<header
+  class="bg-background-dark border-0 border-b border-solid border-tertiary grid w-full"
+>
+  <section
+    class="col-start-2 flex items-center justify-between row-start-2 w-full"
+  >
+    <a
+      href="{{ meta.url }}"
+      class="site-name focus:no-underline focus:text-secondary font-mdNichrome hover:no-underline hover:text-secondary leading-5 no-underline text-primary text-xl xxs:leading-none xxs:text-2xl"
+    >
+      {{ meta.title }}
+    </a>
+    <nav class="overflow-x-auto overflow-y-auto w-full xxxs:overflow-hidden">
+      <ul
+        class="auto-cols-min gap-x-2 grid grid-rows-1 items-center list-none m-0 p-0 xxs:gap-x-3"
+      >
+        {% for entry in nav.header %}
+          <li class="m-0 row-start-1">
+            <a class="hover:underline no-underline" href="{{ entry.link | absURL }}">
+              {{ entry.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </section>
+</header>
