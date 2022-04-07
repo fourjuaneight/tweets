@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}">
+<head>
+    {% include "head.njk" %}
+    <script defer data-domain="tweets.juanvillela.dev" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+    {% include "header.njk" %}
+
+    <main class="grid w-full">
+      <div
+        class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full"
+      >
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+
+    {% include "footer.njk" %}
+
+    {% include "sw.njk" %}
+    <script defer src="{{ meta.url }}/assets/scripts/noise.js"></script>
+
+    <!--! LAST BUILD: {{ build.env }} {{ build.timestamp | dateToISO }} -->
+</body>
+</html>
