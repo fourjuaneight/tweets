@@ -1,5 +1,4 @@
 const { minify } = require('html-minifier');
-const meta = require('../src/data/meta.json');
 
 const shouldTransformHTML = outputPath =>
   outputPath &&
@@ -16,21 +15,6 @@ module.exports = {
         removeComments: true,
         useShortDoctype: true,
       });
-    }
-
-    return content;
-  },
-  absURL: (content, outputPath) => {
-    if (shouldTransformHTML(outputPath)) {
-      return content.replace(/(.*)/g, `${meta.url}/$1/`);
-    }
-
-    return content;
-  },
-  dateYear: (content, outputPath) => {
-    if (shouldTransformHTML(outputPath)) {
-      const date = new Date(content);
-      return date.getFullYear();
     }
 
     return content;

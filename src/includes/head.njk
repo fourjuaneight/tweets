@@ -1,4 +1,4 @@
-{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(meta.url) }}{%- endset -%}
+{%- set absolutePageUrl -%}{{ page.url or url or meta.url }}{%- endset -%}
 {% set reset %}{% include "reset.css" %}{% endset %}
 {% set critical %}{% include "critical.css" %}{% endset %}
 {% set fonts %}{% include "fonts.js" %}{% endset %}
