@@ -1,5 +1,7 @@
 module.exports = {
   title: 'Tweet Archive',
+  description:
+    "This is my tweet archive. Why? I don't trust anyone —let alone Twitter— with my data.",
   url:
     process.env.ELEVENTY_ENV === 'development'
       ? ''
