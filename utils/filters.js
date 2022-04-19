@@ -3,7 +3,7 @@ const { format, formatISO, getYear } = require('date-fns');
 const meta = require('../src/data/meta');
 
 module.exports = {
-  absURL: url => `${meta.url}${url}`,
+  absURL: url => `${meta.url}/${url}`,
   dateToFormat: (date, fmt) => format(date, fmt),
   dateToISO: date => formatISO(date).slice(0, -5),
   dateYear: dateStr => {
