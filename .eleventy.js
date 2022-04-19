@@ -71,7 +71,9 @@ module.exports = config => {
   config.addPassthroughCopy('src/assets/images');
   config.addPassthroughCopy('src/assets/fonts');
   config.addPassthroughCopy('src/assets/styles/main.css');
+  config.addPassthroughCopy('src/assets/styles/tw.css');
   config.addPassthroughCopy('src/assets/scripts/*.js');
+  config.addPassthroughCopy('src/*.js');
 
   // Deep-Merge
   config.setDataDeepMerge(true);

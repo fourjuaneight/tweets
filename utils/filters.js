@@ -1,6 +1,6 @@
 const { format, formatISO, getYear } = require('date-fns');
 
-const meta = require('../src/data/meta.json');
+const meta = require('../src/data/meta');
 
 module.exports = {
   absURL: url => `${meta.url}${url}`,
