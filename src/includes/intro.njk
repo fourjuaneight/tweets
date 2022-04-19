@@ -1,0 +1,19 @@
+<section class="intro flex flex-col items-center justify-start max-w-2xl mx-auto my-4 sm:flex-row w-full">
+  <picture class="img-wrap flex items-center justify-center my-4 w-full">
+    <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
+    <source srcset="{{ meta.url }}/assets/images/hero.webp" type="image/webp">
+    <img
+      src="{{ meta.url }}/assets/images/hero.png"
+      alt="Illustration of Juan laying on a sofa, coding on a laptop. While being levitated by a wizard cat."
+      class="max-w-xs w-full"
+      width="576"
+      height="576"
+      data-small="false"
+      aria-hidden="false"
+      loading="lazy">
+  </picture>
+  <div class="flex flex-col items-start justify-start w-full">
+    <h2 class="md:text-4xl text-3xl">Hi, I'm Juan</h2>
+    <p class="text-xl">{{ meta.description }}</p>
+  </div>
+</section>
