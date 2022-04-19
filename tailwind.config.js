@@ -13,7 +13,7 @@ const pallete = {
 module.exports = {
   purge: {
     enabled: true,
-    content: ['./layouts/**/*.html'],
+    content: ['./src/**/*.html', './src/**/*.njk'],
   },
   darkMode: 'media',
   theme: {
