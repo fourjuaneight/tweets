@@ -17,7 +17,9 @@
 
     {% include "footer.njk" %}
 
-    {% include "sw.njk" %}
+    {% if build.env == "production" %}
+      {% include "sw.njk" %}
+    {% endif %}
     <script defer src="{{ meta.url }}/assets/scripts/noise.js"></script>
 
     <!--! LAST BUILD: {{ build.env }} {{ build.timestamp | dateToISO }} -->
