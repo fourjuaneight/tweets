@@ -18,7 +18,7 @@
                   </time>
                 </a>
               </h2>
-              <p>{{ item.tweet | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
+              <p class="break-words">{{ item.tweet | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
             </article>
           {%- endif -%}
         {%- endfor -%}

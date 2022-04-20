@@ -26,6 +26,7 @@ module.exports = {
       });
     }
   },
+  dateToYear: date => getYear(parseISO(date)),
   dateYear: dateStr => getYear(new Date(dateStr)),
   unicodeToEmoji: text => text.replace(/U\+([a-z0-9]+)/g, '<span>&#x$1</span>'),
   stripSpaces: str => str.replace(/\s/g, ''),

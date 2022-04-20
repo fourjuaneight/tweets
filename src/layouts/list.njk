@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}">
+  <head>
+    {% include "head.njk" %}
+  </head>
+  <body>
+    {% include "header.njk" %}
+    <main class="grid w-full">
+      <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
+        {%- for year in tweetYears -%}
+          <section class="w-full">
+            <h1 class="block border-0 border-b border-solid border-tertiary mb-3 mr-auto">{{ year }}</h1>
+            {%- for item in tweets -%}
+              {%- if (item.date | dateToYear) === year -%}
+                <article class="w-full">
+                  <h2 class="mr-auto">
+                    <a class="hover:underline no-underline" href="{{ meta.url }}/status/{{ item.id }}">
+                      <time class="text-meta whitespace-nowrap" datetime='{{ item.date }}'>
+                        {{ item.date | dateToRelative }}
+                      </time>
+                    </a>
+                  </h2>
+                  <p class="break-words">{{ item.tweet | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
+                </article>
+              {%- endif -%}
+            {%- endfor -%}
+          </section>
+        {%- endfor -%}
+        <section class="footer w-full">
+          <picture class="img-wrap flex items-center justify-center my-4 w-full">
+            <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
+            <source srcset="{{ meta.url }}/assets/images/hero.webp" type="image/webp">
+            <img
+              src="{{ meta.url }}/assets/images/hero.png"
+              alt="Illustration of Juan laying on a sofa, coding on a laptop. While being levitated by a wizard cat."
+              class="max-w-xs w-full"
+              width="576"
+              height="576"
+              data-small="false"
+              aria-hidden="false"
+              loading="lazy">
+          </picture>
+        </section>
+      </div>
+    </main>
+    {% include "footer.njk" %}
+    {% if build.env == "production" %}
+      {% include "sw.njk" %}
+    {% endif %}
+    <script defer type="application/javascript" src="{{ meta.url }}/assets/scripts/noise.js"></script>
+    <!--! LAST BUILD: {{ build.env }} {{ build.timestamp | dateToISO }} -->
+  </body>
+</html>
