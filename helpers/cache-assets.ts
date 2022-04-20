@@ -22,7 +22,7 @@ const ignore = ['sw.js'];
     cwd,
     ignore,
   });
-  const sw = globSync('sw*.js', { cwd });
+  const sw = globSync('sw.js', { cwd });
   const newFiles = files.map(toCache => `'/${toCache}'`).toString();
 
   // find and replace options; add hash ID, files to cache array, and site base URL
@@ -35,8 +35,8 @@ const ignore = ['sw.js'];
   try {
     await replaceInFile(replaceOptions);
 
-    console.info(chalk.cyan('[SCRIPTS]'), 'Worker scripts updated.');
+    console.info(chalk.cyan('[HELPERS]'), 'SW updated.');
   } catch (error) {
-    throw new Error(`${chalk.red('[ERROR]')} ${error}`);
+    throw new Error(error);
   }
 })();
