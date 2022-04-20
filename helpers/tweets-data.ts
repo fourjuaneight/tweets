@@ -24,7 +24,8 @@ const { writeFile } = promises;
     const data: Tweet[] = await response.json();
     const years: number[] = data
       .map(({ date }) => getYear(parseISO(date)))
-      .filter((value, index, self) => self.indexOf(value) === index);
+      .filter((value, index, self) => self.indexOf(value) === index)
+      .sort((a, b) => b - a);
 
     await writeFile(`${dist}/tweets.json`, JSON.stringify(data, null, 2));
     await writeFile(`${dist}/tweetYears.json`, JSON.stringify(years, null, 2));
