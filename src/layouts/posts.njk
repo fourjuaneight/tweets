@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ meta.lang }}">
-<head>
+  <head>
     {% include "head.njk" %}
     <script defer data-domain="tweets.juanvillela.dev" src="https://plausible.io/js/plausible.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     {% include "header.njk" %}
-
     <main class="grid w-full">
-      <div
-        class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full"
-      >
+      <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
         <article class="w-full">
           <h1 class="post-title md:text-6xl mr-auto text-4xl">{{ title }}</h1>
           <section class="content">{{ content | safe }}</section>
@@ -18,14 +15,11 @@
         {% include "intro.njk" %}
       </div>
     </main>
-
     {% include "footer.njk" %}
-
     {% if build.env == "production" %}
       {% include "sw.njk" %}
     {% endif %}
     <script defer type="application/javascript" src="{{ meta.url }}/assets/scripts/noise.js"></script>
-
     <!--! LAST BUILD: {{ build.env }} {{ build.timestamp | dateToISO }} -->
-</body>
+  </body>
 </html>
