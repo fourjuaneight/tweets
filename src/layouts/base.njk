@@ -21,7 +21,7 @@
     {% if build.env == "production" %}
       {% include "sw.njk" %}
     {% endif %}
-    <script defer src="{{ meta.url }}/assets/scripts/noise.js"></script>
+    <script defer type="application/javascript" src="{{ meta.url }}/assets/scripts/noise.js"></script>
 
     <!--! LAST BUILD: {{ build.env }} {{ build.timestamp | dateToISO }} -->
 </body>
