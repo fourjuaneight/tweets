@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const {
   format,
   formatISO,
@@ -25,9 +26,20 @@ module.exports = {
       });
     }
   },
-  dateYear: dateStr => {
-    const date = new Date(dateStr);
-    return getYear(date);
-  },
+  dateYear: dateStr => getYear(new Date(dateStr)),
+  unicodeToEmoji: text => text.replace(/U\+([a-z0-9]+)/g, '<span>&#x$1</span>'),
   stripSpaces: str => str.replace(/\s/g, ''),
+  tweetUrls: url =>
+    url.replace(
+      // eslint-disable-next-line no-useless-escape
+      /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g,
+      (match, p1, p2) =>
+        `<a href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`
+    ),
+  twitterUsername: str =>
+    str.replace(
+      /@([a-zA-Z0-9_]+)/g,
+      (match, username) =>
+        `<a href="https://twitter.com/${username}" target="_blank" rel="noopener noreferrer">@${username}</a>`
+    ),
 };
