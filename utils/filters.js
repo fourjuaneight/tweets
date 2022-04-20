@@ -4,6 +4,7 @@ const meta = require('../src/data/meta');
 
 module.exports = {
   absURL: url => `${meta.url}/${url}`,
+  cleanURL: url => url.replace(/\.html$/g, ''),
   dateToFormat: (date, fmt) => format(date, fmt),
   dateToISO: date => formatISO(date).slice(0, -5),
   dateYear: dateStr => {

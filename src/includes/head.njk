@@ -3,13 +3,13 @@
 {% set critical %}{% include "critical.css" %}{% endset %}
 {% set fonts %}{% include "fonts.js" %}{% endset %}
 
-<base href="{{ absolutePageUrl }}" />
+<base href="{{ meta.url }}{{ absolutePageUrl | cleanURL }}" />
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="ie=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=5,viewport-fit=cover">
 <title>{{ meta.title }}</title>
-<link rel="canonical" href="{{ absolutePageUrl }}" />
+<link rel="canonical" href="{{ meta.url }}{{ absolutePageUrl | cleanURL }}" />
 <meta name="description" content="{{ meta.description }}">
 <meta property="author" content="{{ meta.author }}">
 <meta property="og:description" content="{{ meta.description }}">
@@ -21,7 +21,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:url" content="{{ absolutePageUrl }}">
+<meta property="og:url" content="{{ meta.url }}{{ absolutePageUrl | cleanURL }}">
 <meta property="twitter:site" content="{{ meta.social }}">
 <meta name=twitter:image content="{{ meta.url }}/assets/images/main.jpeg">
 <meta name=twitter:card content="summary_large_image">
@@ -32,7 +32,7 @@
     "@context":"http://schema.org",
     "@type":"WebSite",
     "name":"{{ meta.title }}",
-    "url":"{{ absolutePageUrl }}"
+    "url":"{{ meta.url }}{{ absolutePageUrl | cleanURL }}"
   }
 </script>
 <meta name="image" content="{{ meta.url }}/assets/images/about.png">
