@@ -16,9 +16,20 @@
       >
         {% for entry in nav.header %}
           <li class="m-0 row-start-1">
+            {%- if entry.external -%}
+            <a
+              class="hover:underline no-underline"
+              href="{{ entry.link }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ entry.label }}
+            </a>
+            {%- else -%}
             <a class="hover:underline no-underline" href="{{ entry.link | absURL }}">
               {{ entry.label }}
             </a>
+            {%- endif -%}
           </li>
         {% endfor %}
       </ul>
