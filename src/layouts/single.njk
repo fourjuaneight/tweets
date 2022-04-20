@@ -9,23 +9,23 @@
       <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
         <article class="w-full">
           <h1 class="post-title md:text-6xl mr-auto text-4xl">{{ title }}</h1>
-          <section class="content">{{ content | safe }}</section>
+          <section class="content">
+            {%- if tweet -%}
+              <p class="break-words text-xl">{{ content | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
+            {%- else -%}
+              {{ content | safe }}
+            {%- endif -%}
+          </section>
         </article>
-        <section class="footer w-full">
-          <picture class="img-wrap flex items-center justify-center my-4 w-full">
-            <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
-            <source srcset="{{ meta.url }}/assets/images/hero.webp" type="image/webp">
-            <img
-              src="{{ meta.url }}/assets/images/hero.png"
-              alt="Illustration of Juan laying on a sofa, coding on a laptop. While being levitated by a wizard cat."
-              class="max-w-xs w-full"
-              width="576"
-              height="576"
-              data-small="false"
-              aria-hidden="false"
-              loading="lazy">
-          </picture>
-        </section>
+        {%- if tweet === false -%}
+          <section class="footer w-full">
+            <picture class="img-wrap flex items-center justify-center my-4 w-full">
+              <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
+              <source srcset="{{ meta.url }}/assets/images/hero.webp" type="image/webp">
+              <img src="{{ meta.url }}/assets/images/hero.png" alt="Illustration of Juan laying on a sofa, coding on a laptop. While being levitated by a wizard cat." class="max-w-xs w-full" width="576" height="576" data-small="false" aria-hidden="false" loading="lazy">
+            </picture>
+          </section>
+        {%- endif -%}
       </div>
     </main>
     {% include "footer.njk" %}

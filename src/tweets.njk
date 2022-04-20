@@ -1,0 +1,13 @@
+---
+layout: single
+pagination:
+    data: tweets
+    size: 1
+    alias: status
+permalink: "status/{{ status.id | slug }}/"
+eleventyComputed:
+  title: "{{ status.date | dateToFormat('PPPp') }}"
+tweet: true
+---
+
+{{ status.tweet }}
