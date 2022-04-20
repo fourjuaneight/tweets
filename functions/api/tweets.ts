@@ -74,11 +74,12 @@ export const onRequestGet = async ({ env }: RequestParams) => {
     await getTweetsWithOffset(env);
 
     if (data.length) {
+      // sort data by date in descending order
       const sortedData = data.sort((a, b) => {
         const aDate = new Date(a.date);
         const bDate = new Date(b.date);
 
-        return aDate.getTime() - bDate.getTime();
+        return bDate.getTime() - aDate.getTime();
       });
 
       return new Response(JSON.stringify(data), {
