@@ -35,12 +35,12 @@ module.exports = {
       // eslint-disable-next-line no-useless-escape
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g,
       (match, p1, p2) =>
-        `<a href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`
+        `<a class="break-words" href="${match}" target="_blank" rel="noopener noreferrer">${match}</a>`
     ),
   twitterUsername: str =>
     str.replace(
       /@([a-zA-Z0-9_]+)/g,
       (match, username) =>
-        `<a href="https://twitter.com/${username}" target="_blank" rel="noopener noreferrer">@${username}</a>`
+        `<a class="break-words" href="https://twitter.com/${username}" target="_blank" rel="noopener noreferrer">@${username}</a>`
     ),
 };
