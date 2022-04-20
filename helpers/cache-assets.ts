@@ -37,6 +37,6 @@ const ignore = ['sw.js'];
 
     console.info(chalk.cyan('[HELPERS]'), 'SW updated.');
   } catch (error) {
-    throw new Error(error);
+    throw new Error(`${error}`);
   }
 })();
