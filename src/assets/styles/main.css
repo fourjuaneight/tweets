@@ -196,12 +196,6 @@ header nav > ul {
   min-width: var(--nav-width);
 }
 
-time::before {
-  color: var(--tertiary);
-  content: '\03C4'; /* HTML: &tau; */
-  margin-right: 0.25rem;
-}
-
 h1.post-title {
   text-shadow: 0.15rem 0.15rem var(--tertiary);
 }
