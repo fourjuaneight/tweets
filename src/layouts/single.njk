@@ -9,15 +9,15 @@
       <div class="col-start-2 flex flex-col items-start justify-start row-start-2 w-full">
         <article class="w-full">
           <h1 class="post-title md:text-6xl mr-auto text-4xl">{{ title }}</h1>
-          <section class="content">
+          <section class="{%- if large -%}text-xl{%- endif -%}">
             {%- if large -%}
-              <p class="break-words text-xl">{{ content | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
+              <p class="break-words">{{ content | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
             {%- else -%}
               {{ content | safe }}
             {%- endif -%}
           </section>
         </article>
-        {%- if footer === false -%}
+        {%- if footer === true -%}
           <section class="footer w-full">
             <picture class="img-wrap flex items-center justify-center my-4 w-full">
               <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
