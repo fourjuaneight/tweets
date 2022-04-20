@@ -1,5 +1,7 @@
 # Tweet Archive
 
+![Get-Tweets](https://github.com/fourjuaneight/tweets/actions/workflows/get-tweets.yml/badge.svg)
+
 A statically generated archive of all my tweets. Completely independent from Twitter.
 
 Powered by:
