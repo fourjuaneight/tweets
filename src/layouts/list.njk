@@ -14,7 +14,7 @@
               {%- if (item.date | dateToYear) === year -%}
                 <article class="w-full">
                   <h2 class="mr-auto">
-                    <a class="hover:underline no-underline" href="{{ meta.url }}/status/{{ item.id }}">
+                    <a class="hover:underline no-underline" href="{{ meta.url }}/status/{{ item.id }}/">
                       <time class="text-meta whitespace-nowrap" datetime='{{ item.date }}'>
                         {{ item.date | dateToRelative }}
                       </time>

@@ -7,7 +7,8 @@ pagination:
 permalink: "status/{{ status.id | slug }}/"
 eleventyComputed:
   title: "{{ status.date | dateToFormat('PPPp') }}"
-tweet: true
+large: true
+footer: false
 ---
 
 {{ status.tweet }}

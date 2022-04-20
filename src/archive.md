@@ -1,5 +1,5 @@
 ---
 layout: list
 title: Archive
-permalink: /archive.html
+permalink: /archive/index.html
 ---

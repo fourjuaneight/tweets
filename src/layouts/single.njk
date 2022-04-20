@@ -10,14 +10,14 @@
         <article class="w-full">
           <h1 class="post-title md:text-6xl mr-auto text-4xl">{{ title }}</h1>
           <section class="content">
-            {%- if tweet -%}
+            {%- if large -%}
               <p class="break-words text-xl">{{ content | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
             {%- else -%}
               {{ content | safe }}
             {%- endif -%}
           </section>
         </article>
-        {%- if tweet === false -%}
+        {%- if footer === false -%}
           <section class="footer w-full">
             <picture class="img-wrap flex items-center justify-center my-4 w-full">
               <source srcset="{{ meta.url }}/assets/images/hero.avif" type="image/avif">
