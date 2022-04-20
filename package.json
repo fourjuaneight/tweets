@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Tweets archive",
   "scripts": {
-    "build": "run-s clean eleventy:prod",
+    "build": "run-s clean eleventy:prod && npm run cache-assets",
     "build:debug": "run-s clean eleventy:debug",
     "build:prod": "run-p ts tw && npm run build && npm run cache-assets",
     "build:serve": "run-s clean eleventy:prod && serve dist",
