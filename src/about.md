@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: single
 title: About
 permalink: /about.html
 ---
