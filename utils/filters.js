@@ -28,7 +28,6 @@ module.exports = {
   },
   dateToYear: date => getYear(parseISO(date)),
   dateYear: dateStr => getYear(new Date(dateStr)),
-  unicodeToEmoji: text => text.replace(/U\+([a-z0-9]+)/g, '<span>&#x$1</span>'),
   stripSpaces: str => str.replace(/\s/g, ''),
   tweetUrls: url =>
     url.replace(
@@ -43,4 +42,6 @@ module.exports = {
       (match, username) =>
         `<a class="break-words" href="https://twitter.com/${username}" target="_blank" rel="noopener noreferrer">@${username}</a>`
     ),
+  unicodeToEmoji: text =>
+    text.replace(/([0-9]{1}\/[0-9]{1}$)/g, ' $1').replace(/U\+/g, '&#x'),
 };
