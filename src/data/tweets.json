@@ -6,6 +6,36 @@
     "url": "https://twitter.com/fourjuaneight/status/1518987803505397761"
   },
   {
+    "id": "1518745158140973056",
+    "tweet": "The end result is a simple but personalized feed of all my tweets. Sure, most people won't see this page. But it's my content and I want to host it myself as well. If Twitter burns down tomorrow, I still own my content.\n\n5/5 U+1f9f5\nhttps://tweets.juanvillela.dev/",
+    "date": "2022-04-26T00:13:57.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1518745158140973056"
+  },
+  {
+    "id": "1518745157142786051",
+    "tweet": "I hoard a ton of other stuff. Feel free to fork that repo (and this one) to play around with it. The site is hosted on @Cloudflare Pages and uses serverless functions to interact with Airtable. Every page is generate from a data file.\n\n4/5 U+1f9f5\nhttps://github.com/fourjuaneight/tweets",
+    "date": "2022-04-26T00:13:57.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1518745157142786051"
+  },
+  {
+    "id": "1518745156219977728",
+    "tweet": "But if you're feeling daring, you could automate the whole thing yourself. My setup grabs every new tweet and saves it to Airtable via a @github action. Every new entry is then published a single post to an @eleven_ty blog just for my tweets.\n\n3/5 U+1f9f5\nhttps://github.com/fourjuaneight/archiver",
+    "date": "2022-04-26T00:13:56.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1518745156219977728"
+  },
+  {
+    "id": "1518745153753788416",
+    "tweet": "With Elon buying Twitter, I think it's a good time to remind everyone the importance of owning your content. Now I know most people won't ditch the platform and move over to something like Mastodon; let's be real. But there are other ways to ensure your content is yours.\n\n1/5 U+1f9f5",
+    "date": "2022-04-26T00:13:56.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1518745153753788416"
+  },
+  {
+    "id": "1518745155163074560",
+    "tweet": "With the help of something like @zapier, you could grab every new tweet and save to an @airtable base. You could also go further and publish every tweet as a blog post on your own site. I think I got that idea from @zachleat.\n\n2/5 U+1f9f5\nhttps://www.zachleat.com/web/own-my-tweets/",
+    "date": "2022-04-26T00:13:56.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1518745155163074560"
+  },
+  {
     "id": "1518347230880665600",
     "tweet": "@ChristianSelig @fully_us Hmm, I'll have to check Fully out then. I bought an UpDesk a while back and their customer service is like non-existent.",
     "date": "2022-04-24T21:52:44.000Z",
@@ -1480,6 +1510,12 @@
     "tweet": "It is. I often think about how quickly anything can cease to exist as well. https://twitter.com/hankgreen/status/1380324486390542339",
     "date": "2021-04-09T03:50:35.000Z",
     "url": "https://twitter.com/fourjuaneight/status/1380367514039951369"
+  },
+  {
+    "id": "1379906507840516096",
+    "tweet": "@ChristianSelig New standing desk setup for pro ergonomics?",
+    "date": "2021-04-07T21:18:43.000Z",
+    "url": "https://twitter.com/fourjuaneight/status/1379906507840516096"
   },
   {
     "id": "1379906121033469952",
