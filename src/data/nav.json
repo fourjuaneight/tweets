@@ -5,13 +5,13 @@
       "link": "archive"
     },
     {
-      "label": "About",
-      "link": "about"
-    },
-    {
       "label": "Blog",
       "link": "https://cleverlaziness.com/",
       "external": true
+    },
+    {
+      "label": "About",
+      "link": "about"
     }
   ],
   "footer": [
