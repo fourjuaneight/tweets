@@ -5,15 +5,10 @@ interface TweetValues {
   url: string;
 }
 
-interface TweetRecord {
-  id: string;
-  fields: TweetValues;
-  createdTime: string;
-}
-
-interface AirtableTweetsResp {
-  records: TweetRecord[];
-  offset: string;
+interface HasuraTWQueryResp {
+  data: {
+    media_tweets: TweetValues[];
+  };
 }
 
 interface ContextValue {
@@ -24,65 +19,56 @@ interface RequestParams {
   env: ContextValue;
 }
 
-let data: TweetValues[] = [];
-
-const getTweetsWithOffset = (
-  env: ContextValue,
-  offset?: string
-): Promise<AirtableTweetsResp> => {
-  const options: RequestInit = {
-    headers: {
-      Authorization: `Bearer ${env.AIRTABLE_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-  };
-  const endpoint = `https://api.airtable.com/v0/${env.AIRTABLE_MEDIA_ID}/Tweets`;
-  const url = offset ? `${endpoint}?offset=${offset}` : endpoint;
+const queryHasuraTweets = async (env: ContextValue) => {
+  const query = `
+    {
+      media_tweets(order_by: {date: desc}) {
+        date
+        tweet
+        url
+      }
+    }
+  `;
 
   try {
-    return fetch(url, options)
-      .then((response: Response) => response.json())
-      .then((airtableRes: AirtableTweetsResp) => {
-        data = [
-          ...data,
-          ...airtableRes.records.map(({ fields }) => {
-            const id = fields.url.replace(
-              /(https\:\/\/twitter\.com\/fourjuaneight\/status\/)(.*)/g,
-              '$2'
-            );
+    const request = await fetch(`${env.HASURA_ENDPOINT}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Hasura-Admin-Secret': `${env.HASURA_ADMIN_SECRET}`,
+      },
+      body: JSON.stringify({ query }),
+    });
+    const response: HasuraTWQueryResp | HasuraErrors = await request.json();
 
-            return {
-              id,
-              ...fields,
-            };
-          }),
-        ];
+    if (response.errors) {
+      const { errors } = response as HasuraErrors;
 
-        if (airtableRes.offset) {
-          return getTweetsWithOffset(env, airtableRes.offset);
-        }
+      throw new Error(
+        `(queryHasuraTweets) ${list}: \n ${errors
+          .map(err => `${err.extensions.path}: ${err.message}`)
+          .join('\n')} \n ${query}`
+      );
+    }
 
-        return airtableRes;
-      });
+    const tweets = (response as HasuraTWQueryResp).data.media_tweets;
+    const tweetsWithId: TweetValues[] = tweets.map(tweet => ({
+      ...tweet,
+      id: tweet.url.split('/').pop(),
+    }));
+
+    return tweetsWithId;
   } catch (error) {
-    throw `(getTweetsWithOffset) - ${error}`;
+    throw new Error(`(queryHasuraTweets): \n ${error}`);
   }
 };
 
 export const onRequestGet = async ({ env }: RequestParams) => {
   try {
-    await getTweetsWithOffset(env);
+    const tweets = await queryHasuraTweets(env);
 
-    if (data.length) {
-      // sort data by date in descending order
-      const sortedData = data.sort((a, b) => {
-        const aDate = new Date(a.date);
-        const bDate = new Date(b.date);
-
-        return bDate.getTime() - aDate.getTime();
-      });
-
-      return new Response(JSON.stringify(data), {
+    if (tweets.length) {
+      return new Response(JSON.stringify(tweets), {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -90,9 +76,9 @@ export const onRequestGet = async ({ env }: RequestParams) => {
         status: 200,
       });
     } else {
-      return new Response('Missing data', {
+      return new Response('No data found', {
         ok: false,
-        status: 500,
+        status: 404,
       });
     }
   } catch (error) {
