@@ -1,5 +1,5 @@
 # Use Alpine Linux as our base image so that we minimize the overall size our final container, and minimize the surface area of packages that could be out of date.
-FROM node:16.14.2-alpine as builder
+FROM node:16.15.0-alpine as builder
 
 # Build dependencies
 RUN apk upgrade -U -a \
@@ -20,6 +20,6 @@ COPY package*.json /app/
 RUN npm install
 
 # Get a clean image with binaries and the pre-built node modules
-FROM node:16.14.2-alpine
+FROM node:16.15.0-alpine
 RUN npm install -g @11ty/eleventy serve
 COPY --from=builder /app/node_modules /app/node_modules
