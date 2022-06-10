@@ -35,8 +35,10 @@ const ignore = ['sw.js'];
   try {
     await replaceInFile(replaceOptions);
 
-    console.info(chalk.cyan('[HELPERS]'), 'SW updated.');
+    console.info(chalk.cyan('[SCRIPTS]'), 'SW updated.');
+    process.exit(0);
   } catch (error) {
-    throw new Error(`${error}`);
+    console.error(chalk.red('[ERROR]'), error);
+    process.exit(1);
   }
 })();
