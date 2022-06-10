@@ -44,11 +44,9 @@ const queryHasuraTweets = async (env: ContextValue) => {
     if (response.errors) {
       const { errors } = response as HasuraErrors;
 
-      throw new Error(
-        `(queryHasuraTweets) ${list}: \n ${errors
-          .map(err => `${err.extensions.path}: ${err.message}`)
-          .join('\n')} \n ${query}`
-      );
+      throw `(queryHasuraTweets) ${list}:\n${errors
+        .map(err => `${err.extensions.path}: ${err.message}`)
+        .join('\n')}\n${query}`;
     }
 
     const tweets = (response as HasuraTWQueryResp).data.media_tweets;
@@ -59,7 +57,7 @@ const queryHasuraTweets = async (env: ContextValue) => {
 
     return tweetsWithId;
   } catch (error) {
-    throw new Error(`(queryHasuraTweets): \n ${error}`);
+    throw `(queryHasuraTweets):\n${error}`;
   }
 };
 
