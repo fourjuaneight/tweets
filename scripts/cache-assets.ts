@@ -1,9 +1,10 @@
 import { resolve } from 'path';
 
-import chalk from 'chalk';
 import dotenv from 'dotenv';
 import glob from 'glob';
 import { replaceInFile, ReplaceInFileConfig } from 'replace-in-file';
+
+import logger from './logger';
 
 dotenv.config();
 
@@ -35,10 +36,10 @@ const ignore = ['sw.js'];
   try {
     await replaceInFile(replaceOptions);
 
-    console.info(chalk.cyan('[SCRIPTS]'), 'SW updated.');
+    logger.info('[cache-assets]: SW updated.');
     process.exit(0);
   } catch (error) {
-    console.error(chalk.red('[ERROR]'), error);
+    logger.error(`[cache-assets]: ${error}`);
     process.exit(1);
   }
 })();

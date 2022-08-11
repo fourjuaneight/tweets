@@ -47,6 +47,8 @@
     "html-minifier": "^4.0.0",
     "isomorphic-fetch": "^3.0.0",
     "markdown-it": "^12.3.2",
+    "pino": "^8.4.0",
+    "pino-pretty": "^9.0.0",
     "replace-in-file": "^6.3.2",
     "terser": "^5.14.2"
   },

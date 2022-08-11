@@ -1,10 +1,11 @@
 import { promises } from 'fs';
 import { resolve } from 'path';
 
-import chalk from 'chalk';
 import dotenv from 'dotenv';
 import fetch from 'isomorphic-fetch';
 import { getYear, parseISO } from 'date-fns';
+
+import logger from './logger';
 
 interface Tweet {
   id: string;
@@ -30,10 +31,10 @@ const { writeFile } = promises;
     await writeFile(`${dist}/tweets.json`, JSON.stringify(data, null, 2));
     await writeFile(`${dist}/tweetYears.json`, JSON.stringify(years, null, 2));
 
-    console.info(chalk.cyan('[SCRIPTS]'), 'Tweets data updated and saved.');
+    logger.info('[tweets-data]: Tweets data updated and saved.');
     process.exit(0);
   } catch (error) {
-    console.error(chalk.red('[ERROR]'), error);
+    logger.error(`[tweets-data]: ${error}`);
     process.exit(1);
   }
 })();
