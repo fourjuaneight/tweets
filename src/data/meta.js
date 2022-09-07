@@ -6,7 +6,7 @@ module.exports = {
     process.env.ELEVENTY_ENV === 'development'
       ? ''
       : 'https://tweets.juanvillela.dev',
-  social: 'fourjuaneight',
+  social: 'galewindalbert',
   lang: 'en',
   locale: 'en_us',
   colors: {
