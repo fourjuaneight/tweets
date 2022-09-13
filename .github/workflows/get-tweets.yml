@@ -1,9 +1,5 @@
 name: Get Tweets
 
-on:
-  schedule:
-    - cron: "30 5 * * *"
-
 jobs:
   get-tweets:
     runs-on: ubuntu-20.04
