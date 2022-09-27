@@ -11,7 +11,7 @@
           <h1 class="post-title md:text-6xl mr-auto text-4xl">{{ title }}</h1>
           <section class="{%- if large -%}text-xl{%- endif -%}">
             {%- if large -%}
-              <p class="break-words">{{ content | unicodeToEmoji | tweetUrls | twitterUsername | safe }}</p>
+              <p class="break-words">{{ content | tweetUrls | twitterUsername | safe }}</p>
             {%- else -%}
               {{ content | safe }}
             {%- endif -%}
