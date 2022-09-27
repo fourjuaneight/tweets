@@ -38,7 +38,7 @@ module.exports = {
     ),
   twitterUsername: str =>
     str.replace(
-      /@([a-zA-Z0-9_]+)/g,
+      /twitter\.com\/@([a-zA-Z0-9_]+)/g,
       (match, username) =>
         `<a class="break-words" href="https://twitter.com/${username}" target="_blank" rel="noopener noreferrer">@${username}</a>`
     ),
